@@ -2,11 +2,12 @@ require 'formula'
 
 class Dotties < Formula
   homepage 'https://github.com/tinytacoteam/dotties-core'
-  url 'https://github.com/tinytacoteam/dotties-core/archive/v0.1.0.tar.gz'
-  sha256 '20cc14c5456e37e61089f951453906f6888b4d5fa89e95ae77b6e008bea29ad2'
+  url 'https://github.com/tinytacoteam/dotties-core/archive/v0.1.1.tar.gz'
+  sha256 'eeb58068009f30ce4b2746482605b970401316a77162507864f2e60e22ff392c'
 
   def install
-    libexec.install Dir["*"]
+    libexec.install Dir["*"] << '.version'
+    bin.install_symlink libexec/"bin/dotties"
   end
 
   test do
